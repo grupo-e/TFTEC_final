@@ -1,6 +1,6 @@
-package com.tf.politicas;
+package com.tf.GarOOpa.casosDeUso.politicas;
 
-import com.tf.entidades.Roteiro;
+import com.tf.GarOOpa.entidades.Roteiro;
 
 public interface CalculaCustoViagem {
 

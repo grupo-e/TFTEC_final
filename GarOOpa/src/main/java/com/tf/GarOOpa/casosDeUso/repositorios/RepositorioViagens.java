@@ -8,17 +8,13 @@ import com.tf.GarOOpa.entidades.Viagem;
 
 public class RepositorioViagens {
 
-    private List<Viagem> viagens;
+    private List<Viagem> viagens = new LinkedList<>();
     public void cadastrarViagem(Viagem umaViagem) {
 
-        //writer
+        viagens.add(umaViagem);
 
     }
-    public void lerViagem(Viagem umaViagem) {
-
-        //leitor
-
-    }
+   
     public List<Viagem> getViagem(Motorista motorista) {
 
         List<Viagem> lst = new LinkedList<>();
