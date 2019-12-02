@@ -1,6 +1,6 @@
-package com.tf.politicas;
+package com.tf.GarOOpa.casosDeUso.politicas;
 
-import com.tf.entidades.Roteiro;
+import com.tf.GarOOpa.entidades.Roteiro;
 
 public class CalculaCustoSimples implements CalculaCustoViagem {
 
@@ -8,7 +8,7 @@ public class CalculaCustoSimples implements CalculaCustoViagem {
     public double custoViagem(int numBairros, Roteiro roteiro) {
     
         double custoFinal;
-        double custoBas = roteiro.getBairroDestino().getCustoBasico();
+        double custoBas = roteiro.getBairroDestino().getCustoBasico()+roteiro.getBairroOrigem().getCustoBasico();
         custoFinal = custoBas;
         return custoFinal;
 
