@@ -1,9 +1,12 @@
 package com.tf.GarOOpa.casosDeUso.politicas;
 
-import com.tf.GarOOpa.entidades.Roteiro;
+import com.tf.GarOOpa.entidades.*;
+import java.util.*;
 
 public interface CalculaCustoViagem {
 
-    public double custoViagem(int numBairros, Roteiro roteiro);
+    double custoViagem(List<Bairro> bairros);
+    double CalccustoViagem(String catVeiculo, List<Bairro> bairros);
+
 
 }

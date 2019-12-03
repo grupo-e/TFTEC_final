@@ -2,14 +2,11 @@ package com.tf.GarOOpa.WebService;
 
 import java.util.List;
 
-import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioCidades;
-import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioMotoristas;
-import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioPassageiro;
-import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioViagens;
-import com.tf.GarOOpa.casosDeUso.servicos.ServicoMotorista;
-import com.tf.GarOOpa.casosDeUso.servicos.ServicosPassageiro;
-import com.tf.GarOOpa.entidades.Viagem;
-import com.tf.politicas.CalculaCustoViagem;
+import com.tf.GarOOpa.casosDeUso.repositorios.*;
+import com.tf.GarOOpa.casosDeUso.servicos.*;
+import com.tf.GarOOpa.entidades.*;
+import com.tf.GarOOpa.casosDeUso.politicas.*;
+import com.tf.GarOOpa.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +34,9 @@ public class ServicoController {
 
     }
 
-    public ViagemDTO solicitaVeiculoParaViagem(String cpf,String cidadeaux,String bairroOrigem,String bairroDestino,String formaPagamento,String catVeiculo) {
+    public void solicitaVeiculoParaViagem(String cpf,String cidadeaux,String bairroOrigem,String bairroDestino,String formaPagamento,String catVeiculo) {
         
-        return fachada.solicitaVeiculoParaViagem(cpf, cidadeaux, bairroOrigem, bairroDestino, formaPagamento, catVeiculo);
+         fachada.solicitaVeiculoParaViagem(cpf, cidadeaux, bairroOrigem, bairroDestino, formaPagamento, catVeiculo);
     }
 
     public boolean informaPontuacaoMotorista(String cpf) {

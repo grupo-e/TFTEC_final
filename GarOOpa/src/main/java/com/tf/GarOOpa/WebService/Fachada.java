@@ -2,6 +2,9 @@ package com.tf.GarOOpa.WebService;
 
 import java.util.List;
 
+import com.tf.GarOOpa.casosDeUso.politicas.CalculaCustoViagem;
+import com.tf.GarOOpa.casosDeUso.politicas.SelecaoMotorista;
+import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioBairros;
 import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioCidades;
 import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioMotoristas;
 import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioPassageiro;
@@ -20,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Fachada {
-    private CustoViagem custoViagem;
+    private CalculaCustoViagem custoViagem;
     private SelecaoMotorista selecaoMotorista;
     private RepositorioCidades cidades;
     private RepositorioBairros repoBairro;
@@ -30,7 +33,7 @@ public class Fachada {
     private ServicosPassageiro svrPassa;
     private ServicoMotorista svrMoto;
 
-    public Fachada(CustoViagem custoViagem,SelecaoMotorista selecaoMotorista,RepositorioCidades cidades,RepositorioBairros bairros, RepositorioPassageiro repoPassa,RepositorioMotoristas motoristas,RepositorioViagens repoVia) {
+    public Fachada(CalculaCustoViagem custoViagem,SelecaoMotorista selecaoMotorista,RepositorioCidades cidades,RepositorioBairros bairros, RepositorioPassageiro repoPassa,RepositorioMotoristas motoristas,RepositorioViagens repoVia) {
 
         this.custoViagem = custoViagem;
         this.selecaoMotorista = selecaoMotorista;
@@ -46,23 +49,23 @@ public class Fachada {
     }
 
     // Roteiro completo de como criar uma viagem
-    public ViagemDTO solicitaVeiculoParaViagem(String cpf,String cidadeaux,String bairroOrigem,String bairroDestino,String formaPagamento,String catVeiculo) {
-        Passageiro passageiro = repoPassa.getPassageiro(cpf);
-        Cidade cidade = repoCidade.getCidade(cidade);
-        Bairro origem = repoBairro.getBairro(cidade,bairroOrigem);
-        Bairro destino = repoBairro.getBairro(cidade,bairroDestino);
-        Roteiro roteiro = Roteiro.criaRoteiro(cidade, bairroOrigem, bairroDestino);
+    public void solicitaVeiculoParaViagem(String cpf,String cidadeaux,String bairroOrigem,String bairroDestino,String formaPagamento,String catVeiculo) {
+        Passageiro passageiro = repoPassa.recuperaPorCpf(cpf);
+        Cidade cidade = cidades.getCidade(cidadeaux);
+        Bairro origem = cidades.getBairro(cidadeaux,bairroOrigem);
+        Bairro destino = cidades.getBairro(cidadeaux,bairroDestino);
+        Roteiro r = new Roteiro(cidade, origem, destino);
+        List<Bairro> roteiro = r.criarRoteiro(cidade, origem, destino);
         Motorista motorista = selecaoMotorista.selecionaMotoristaParaViagem(roteiro,catVeiculo); 
         Veiculo veiculo = motorista.getVeiculo();
-        double custo = custoViagem.custoViagem(roteiro, passageiro, veiculo);
+        double custo = custoViagem.CalccustoViagem(catVeiculo, roteiro);
         Viagem viagem =  svrPassa.criarViagem(cpf, bairroOrigem, bairroDestino, formaPagamento, catVeiculo, cidadeaux);
-        repoVia.cadastraViagem(viagem);
-        return viagem;
+        repoVia.cadastrarViagem(viagem);
     }
 
     public boolean informaPontuacaoMotorista(String cpf) {
         
-        Motorista moto = motoristas.getMotorista(cpf);
+        Motorista moto = motoristas.recuperaPorCpf(cpf);
 
         if(moto!=null){
             System.out.println(moto.somAval/moto.qtdAval);
@@ -76,7 +79,7 @@ public class Fachada {
     }
 
     public boolean informaPontuacaoPassageiro(String cpfPassageiro){
-        Passageiro passa = repoPassa.getPassageiro(cpfPassageiro);
+        Passageiro passa = repoPassa.recuperaPorCpf(cpfPassageiro);
 
         if(passa!=null){
             System.out.println(passa.somAval/passa.qtdAval);

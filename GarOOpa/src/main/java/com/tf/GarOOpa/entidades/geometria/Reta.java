@@ -1,4 +1,4 @@
-package com.tf.entidades.geometria;
+package com.tf.GarOOpa.entidades.geometria;
 public class Reta {
 
 private Ponto p1,p2;

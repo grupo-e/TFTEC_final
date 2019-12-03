@@ -1,4 +1,4 @@
-package com.tf.entidades.geometria;
+package com.tf.GarOOpa.entidades.geometria;
 public class Area {
 
 private Ponto pSupEsq, pInfDir;
@@ -76,10 +76,6 @@ public SituacaoReta classificaAlt (Reta reta) {
             return SituacaoReta.TODA_FORA;  
 
     }
-
-
-
-
 }
 
 public SituacaoReta classifica(Reta reta) {

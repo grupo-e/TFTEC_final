@@ -1,0 +1,5 @@
+1414214	Joao	433	100	veiculo luxo	
+	cidade	bairros	precos	bases	alturas
+		ipiora, bento, santo		"""1,2"",""2,3"",..."	
+				"""1"",""2"""	
+				...	

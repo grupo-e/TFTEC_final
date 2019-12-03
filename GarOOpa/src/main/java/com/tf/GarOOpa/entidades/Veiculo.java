@@ -12,4 +12,16 @@ public interface Veiculo {
 
     public Boolean bagageiroGrande();
 
+    public void setplaca(String placa);
+
+    public void setcor(String cor);
+
+    public void setmarca(String marca);
+
+	public void setAtt(boolean b);
+
+	public void setBagg(boolean b);
+
+    
+    
 }

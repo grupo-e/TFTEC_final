@@ -1,4 +1,4 @@
-package com.tf.entidades.geometria;
+package com.tf.GarOOpa.entidades.geometria;
 public class Ponto { 
 
     private int x; 

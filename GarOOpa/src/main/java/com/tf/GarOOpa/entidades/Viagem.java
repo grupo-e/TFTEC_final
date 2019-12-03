@@ -21,7 +21,7 @@ public class Viagem {
         return identificador;
     } 
 
-    public LocalTime getDataHora(){
+    public LocalTime getData(){
         return data_hora;
     }  
 

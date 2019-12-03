@@ -1,9 +1,11 @@
+package com.tf.GarOOpa.casosDeUso.politicas;
+
 import java.util.List;
 
 import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioCidades;
 import com.tf.GarOOpa.casosDeUso.repositorios.RepositorioMotoristas;
 import com.tf.GarOOpa.entidades.Motorista;
-import com.tf.GarOOpa.entidades.Roteiro;
+import com.tf.GarOOpa.entidades.*;
 
 public class SelecaoMotorista {
 
@@ -15,7 +17,7 @@ public class SelecaoMotorista {
 
     }
 
-    private Motorista selecionaMotoristaParaViagem(Roteiro roteiro,String catVeiculo){
+    public Motorista selecionaMotoristaParaViagem(List<Bairro> bairros,String catVeiculo){
 
         List<Motorista> lstMoto = repoMoto.getMotoristas();
         Motorista moto;

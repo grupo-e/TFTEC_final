@@ -10,7 +10,7 @@ public class Motorista{
     
     public enum Pagamento {
 
-        DINHEIRO, DEBITO, CREDITO  
+        DINHEIRO, DEBITO, CREDITO; 
 
     }
 

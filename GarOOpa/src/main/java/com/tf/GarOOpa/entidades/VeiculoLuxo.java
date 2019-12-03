@@ -8,17 +8,6 @@ public class VeiculoLuxo implements Veiculo{
     private Boolean attCorrInf;
     private Boolean bagG;
 
-    /*
-    public VeiculoLuxo(String placa, String marca, String cor) {
-
-        this.placa = placa;
-        this.marca = marca;
-        this.cor = cor;
-        attCorrInf = true;
-        bagG = true;
-
-    }*/
-
 
     @Override
     public String getPlaca(){return placa;}
@@ -34,4 +23,37 @@ public class VeiculoLuxo implements Veiculo{
 
     @Override
     public Boolean bagageiroGrande(){return bagG;}
+
+    public void setplaca(String placa) {
+
+        this.placa = placa;
+
+    }
+
+    public void setcor(String cor) {
+
+        this.cor = cor;
+
+    }
+
+    public void setmarca(String marca) {
+
+        this.marca = marca;
+
+    }
+
+    @Override
+    public void setAtt(boolean b) {
+        // TODO Auto-generated method stub
+        this.attCorrInf = attCorrInf;
+
+    }
+
+    @Override
+    public void setBagg(boolean b) {
+        // TODO Auto-generated method stub
+        this.bagG = b;
+
+    }
+
 }

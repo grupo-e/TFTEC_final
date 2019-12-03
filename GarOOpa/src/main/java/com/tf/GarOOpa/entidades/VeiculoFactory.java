@@ -2,14 +2,6 @@ package com.tf.GarOOpa.entidades;
 
 public class VeiculoFactory {
 
-    String tipo;
-
-    /*
-    public VeiculoFactory(String tipo) {// ver isso
-
-        this.tipo = tipo;
-
-    }*/
 
     public static Veiculo getVeiculo(String tipoVeiculo){
 
