@@ -4,8 +4,6 @@ import com.tf.GarOOpa.entidades.Motorista;
 import com.tf.GarOOpa.entidades.VeiculoFactory;
 import com.tf.GarOOpa.entidades.Motorista.Pagamento;
 
-import org.apache.tomcat.util.http.fileupload.DeferredFileOutputStream;
-
 import com.tf.GarOOpa.entidades.*;
 
 import java.io.*;
@@ -13,7 +11,7 @@ import java.util.*;
 
 public class RepositorioMotoristas {
 
-    String pessoa[]=new String[6];
+    String pessoa[]=new String[2000];
     List<Motorista> motoristas = new LinkedList<>();
 
     public boolean cadastraMotorista (Motorista moto) {
@@ -24,7 +22,7 @@ public class RepositorioMotoristas {
 
     public void readerMotorista(){
 
-        String csvFile = "C:/Users/18106147/Desktop/TFTec-1/por favor funciona/src/sample/passageiros.csv";
+        String csvFile = "./motoristas.csv";
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ";";

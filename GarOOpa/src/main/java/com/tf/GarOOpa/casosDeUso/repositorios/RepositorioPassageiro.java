@@ -7,12 +7,12 @@ import java.util.*;
 
 public class RepositorioPassageiro {
 
-    String pessoa[]=new String[4];
+    String pessoa[]=new String[2000];
     List<Passageiro> passageiros = new LinkedList<>();
 
     public void readerPassageiro(){
 
-        String csvFile = "C:/Users/18106147/Desktop/TFTec-1/por favor funciona/src/sample/passageiros.csv";
+        String csvFile = "./passageiro.csv";
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ";";

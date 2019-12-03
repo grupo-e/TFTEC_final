@@ -17,7 +17,7 @@ public class RepositorioBairros {
 
     public void readerBairros(){
        
-        String csvFile = "C:/Users/18106147/Desktop/TFTec-1/por favor funciona/src/sample/passageiros.csv";
+        String csvFile = "./cidades.csv";
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ";";

@@ -16,27 +16,6 @@ public class RepositorioViagens {
         viagens.add(umaViagem);
 
     }
-   
-
-    /*
-    public void writerViagem(Viagem viagem){
-
-    FileWriter writer = new FileWriter("viagens.csv");
-    for(int i=0;i<viagens.size();i++){
-    writer.append(Integer.toString(viagem.getIdentificador()));
-    writer.append(',');
-    writer.append(viagem.getData().toString());
-    writer.append(',');
-    writer.append(Integer.toString(viagem.getSomA()));
-    writer.append(',');
-    writer.append(viagem.getQtdAval());
-    writer.append("\n");
-
-    writer.flush();
-    writer.close();
-
-    }
-}*/
 
 public List<Viagem> getViagem(Motorista motorista) {
 
